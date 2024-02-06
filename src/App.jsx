@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import Home from './pages/Home/Home'
 import CreatePost from './pages/CreatePost/CreatePost'
+import EditPost from './pages/EditPost/EditPost'
 import DashBoard from './pages/Dashboard/Dashboard'
 import Login from './pages/Login/Login'
 
@@ -53,6 +54,7 @@ const App = () => {
                     <Route path='/cadastrarCategoria' element={!user ? <Login /> : <Navigate to="/Formulario3" />} />
                     <Route path='/cadastrarAny' element={!user ? <Login /> : <Navigate to="/Formulario4" />} />
                     <Route path='/posts/create' element={user ? <CreatePost /> : <Navigate to="/" />} />
+                    <Route path='/posts/edit/:id' element={user ? <EditPost /> : <Navigate to="/" />} />
                     <Route path='/dashboard' element={user ? <DashBoard /> : <Navigate to="/" /> } />
                     <Route path='/login' element={!user ? <Login /> : <Navigate to="/" />} />
                     <Route path='/search' element={<Search />} />

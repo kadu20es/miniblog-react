@@ -6,6 +6,8 @@ import {
 } from "firebase/firestore"
 
 export const useFetchDocument = (docCollection, id) => {
+    console.log(docCollection)
+    console.log(id)
 
     const [ document, setDocument ] = useState(null)
     const [ error, setError ] = useState(null)
@@ -24,8 +26,8 @@ export const useFetchDocument = (docCollection, id) => {
 
                 const docRef = await doc(db, docCollection, id)
                 const docSnap = await getDoc(docRef)
-
                 setDocument(docSnap.data())
+                console.log(document)
                 setLoading(false)
 
             } catch (error) {
@@ -42,7 +44,7 @@ export const useFetchDocument = (docCollection, id) => {
     useEffect(() => {
         return () => setCancelled(true)
     }, [])
-
+    console.log(document)
     return {document, loading, error}
 
 }
